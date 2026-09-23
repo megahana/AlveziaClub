@@ -1,0 +1,208 @@
+/* ALVEZIA — Women's Club Annecy · feuille de style du site */
+
+/* Charte ALVEZIA — un seul univers (beige, taupe, brun), pas de thème sombre. */
+:root {
+  color-scheme: light;
+  --papier: #EFEAE1;      /* fond principal */
+  --lin: #E7DDD0;         /* fond des sections alternées */
+  --ivoire: #F7F3EC;      /* surfaces claires */
+  --taupe: #8B7D74;       /* texte secondaire */
+  --bronze: #806545;      /* accent = couleur du logo */
+  --espresso: #3B2519;    /* texte + boutons */
+  --trait: rgba(59, 37, 25, .18);
+  --display: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --label: "Jost", "Futura", "Century Gothic", "Helvetica Neue", Arial, sans-serif;
+  --arche: 999px 999px 0 0;
+  --gouttiere: clamp(16px, 5vw, 56px);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--papier);
+  color: var(--espresso);
+  font-family: var(--display);
+  font-size: 1.25rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.wrap { width: 100%; max-width: 1180px; margin-inline: auto; padding-inline: var(--gouttiere); }
+.label {
+  font-family: var(--label); font-weight: 400; font-size: .72rem;
+  letter-spacing: .3em; text-transform: uppercase; color: var(--taupe);
+}
+h2 {
+  font-family: var(--display); font-weight: 300; font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.05; margin: .4em 0 .35em; text-wrap: balance; letter-spacing: -.01em;
+}
+h2 em { font-style: italic; color: var(--bronze); }
+p { margin: 0 0 1em; max-width: 34em; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: .8em;
+  font-family: var(--label); font-size: .78rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase;
+  text-decoration: none; padding: 1.15em 2em; border-radius: 999px;
+  background: var(--espresso); color: var(--papier); border: 1px solid var(--espresso);
+  transition: background .25s, color .25s;
+}
+.btn:hover { background: transparent; color: var(--espresso); }
+.btn--clair { background: var(--papier); color: var(--espresso); border-color: var(--papier); }
+.btn--clair:hover { background: transparent; color: var(--papier); }
+.btn span[aria-hidden] { font-size: 1.1em; letter-spacing: 0; }
+
+/* En-tête */
+.entete {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: color-mix(in srgb, var(--papier) 88%, transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--trait);
+}
+.entete .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 10px; }
+.marque { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.marque img { width: 40px; height: auto; }
+.marque b { font-family: var(--display); font-weight: 500; font-size: 1.15rem; letter-spacing: .32em; }
+.entete .btn { padding: .9em 1.4em; font-size: .68rem; }
+
+/* Accueil */
+.accueil .wrap {
+  display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(28px, 5vw, 72px);
+  align-items: center; padding-block: clamp(36px, 6vw, 80px);
+}
+.accueil__logo { width: min(440px, 100%); margin: 0 0 18px; }
+.coord { display: flex; gap: 14px; align-items: center; margin-bottom: 18px; }
+.coord::before { content: ""; width: 38px; height: 1px; background: var(--taupe); }
+.univers-ligne {
+  font-family: var(--label); font-size: .8rem; letter-spacing: .26em; text-transform: uppercase;
+  margin: 6px 0 22px; color: var(--espresso);
+}
+.accroche { font-size: clamp(1.35rem, 2.4vw, 1.6rem); line-height: 1.4; font-weight: 400; max-width: 24em; }
+.arche {
+  position: relative; border-radius: var(--arche); overflow: hidden; aspect-ratio: 4 / 5;
+  max-width: 100%; background: var(--lin);
+}
+.arche img { width: 100%; height: 100%; object-fit: cover; }
+.arche figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 18px;
+  font-family: var(--label); font-size: .62rem; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--ivoire); background: linear-gradient(transparent, rgba(40, 24, 15, .55));
+}
+@media (prefers-reduced-motion: no-preference) {
+  .monte { animation: monte .9s cubic-bezier(.2,.7,.2,1) both; }
+  .monte:nth-child(2) { animation-delay: .12s; }
+  .monte:nth-child(3) { animation-delay: .24s; }
+  @keyframes monte { from { opacity: .001; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+}
+
+/* Concept */
+.concept { background: var(--lin); }
+.concept .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(28px, 6vw, 96px); padding-block: clamp(56px, 8vw, 110px); align-items: start; }
+.piliers { list-style: none; margin: 8px 0 26px; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.piliers li {
+  font-family: var(--label); font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+  border: 1px solid var(--trait); border-radius: 999px; padding: .7em 1.2em; background: var(--ivoire);
+}
+.note-creation { border-top: 1px solid var(--trait); padding-top: 20px; font-style: italic; color: var(--taupe); }
+
+/* Univers */
+.univers .wrap { padding-block: clamp(56px, 8vw, 110px); }
+.univers__tete { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; }
+.grille { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 2vw, 24px); }
+.carte { margin: 0; display: grid; gap: 14px; align-content: start; }
+.carte .arche { aspect-ratio: 4 / 5.2; }
+.carte h3 { font-family: var(--label); font-weight: 500; font-size: .82rem; letter-spacing: .3em; margin: 4px 0 0; }
+.carte p { font-size: 1.12rem; line-height: 1.35; margin: 0; color: var(--taupe); }
+
+/* Événements */
+.rendezvous .wrap { padding-block: 0 clamp(56px, 8vw, 110px); }
+.rendezvous__bloc {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(24px, 5vw, 64px); align-items: center;
+  border-top: 1px solid var(--trait); border-bottom: 1px solid var(--trait); padding-block: clamp(32px, 5vw, 56px);
+}
+.rendezvous__photo { position: relative; margin: 0 0 clamp(28px, 4vw, 44px); border-radius: 28px; overflow: hidden; aspect-ratio: 16 / 8; max-width: 100%; }
+.rendezvous__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+.rendezvous__photo figcaption {
+  position: absolute; left: 18px; bottom: 14px; font-family: var(--label); font-size: .62rem; letter-spacing: .24em;
+  text-transform: uppercase; color: var(--ivoire); text-shadow: 0 1px 6px rgba(40, 24, 15, .5);
+}
+@media (max-width: 520px) { .rendezvous__photo { aspect-ratio: 4 / 3; border-radius: 20px; } }
+.rendezvous__liste { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+.rendezvous__liste li { font-size: 1.3rem; padding: 12px 0; border-bottom: 1px solid var(--trait); }
+.rendezvous__liste li:nth-last-child(-n+2) { border-bottom: 0; }
+
+/* Où en est le projet */
+.etapes { background: var(--espresso); color: var(--papier); }
+.etapes .wrap { padding-block: clamp(56px, 8vw, 100px); }
+.etapes .label { color: #C9B6A2; }
+.etapes h2 em { color: #D2B48F; }
+.frise { list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: e; }
+.frise li { position: relative; padding: 26px 20px 0 0; border-top: 1px solid rgba(239, 234, 225, .25); }
+.frise li::before {
+  content: ""; position: absolute; top: -6px; left: 0; width: 11px; height: 11px; border-radius: 50%;
+  background: var(--espresso); border: 1px solid rgba(239, 234, 225, .5);
+}
+.frise li.actuelle { border-top-color: #D2B48F; }
+.frise li.actuelle::before { background: #D2B48F; border-color: #D2B48F; box-shadow: 0 0 0 5px rgba(210, 180, 143, .2); }
+.frise b { display: block; font-family: var(--label); font-weight: 400; font-size: .68rem; letter-spacing: .26em; text-transform: uppercase; color: #C9B6A2; margin-bottom: 6px; }
+.frise span { font-size: 1.28rem; line-height: 1.3; display: block; }
+.frise em { display: inline-block; margin-top: 10px; font-family: var(--label); font-style: normal; font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: var(--espresso); background: #D2B48F; padding: .45em .8em; border-radius: 999px; }
+
+/* Questionnaire */
+.questionnaire .wrap { padding-block: clamp(56px, 8vw, 110px); display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+.questionnaire__intro { position: sticky; top: 100px; }
+.avantages { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 12px; }
+.avantages li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; font-size: 1.12rem; line-height: 1.35; }
+.avantages li::before { content: "✦"; color: var(--bronze); font-size: .9rem; line-height: 1.5; }
+.formulaire {
+  background: var(--ivoire); border: 1px solid var(--trait); border-radius: 28px;
+  padding: clamp(22px, 4vw, 44px); min-height: 360px;
+}
+.formulaire iframe { width: 100%; border: 0; min-height: 600px; }
+.attente { display: grid; gap: 16px; justify-items: start; }
+.attente .duree { font-family: var(--label); font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--taupe); }
+.attente h3 { font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.2rem); line-height: 1.15; margin: 0; }
+.apercu { list-style: none; padding: 0; margin: 4px 0 8px; display: grid; gap: 0; width: 100%; counter-reset: q; }
+.apercu li { counter-increment: q; display: grid; grid-template-columns: 36px 1fr; padding: 11px 0; border-bottom: 1px solid var(--trait); font-size: 1.1rem; line-height: 1.3; }
+.apercu li::before { content: counter(q); font-family: var(--label); font-size: .72rem; color: var(--bronze); padding-top: 4px; }
+.mention { font-size: .98rem; color: var(--taupe); font-style: italic; margin: 0; }
+
+/* Pied de page */
+.pied { background: var(--lin); border-top: 1px solid var(--trait); }
+.pied .wrap { padding-block: 44px 36px; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 28px; }
+.pied img { width: 150px; }
+.pied ul { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 8px; font-size: 1.08rem; }
+.pied a { text-decoration: none; border-bottom: 1px solid var(--trait); }
+.pied a:hover { border-bottom-color: var(--espresso); }
+.copie { font: inherit; font-family: var(--label); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; background: none; border: 1px solid var(--trait); border-radius: 999px; padding: .4em .8em; margin-left: 8px; cursor: pointer; color: var(--espresso); }
+.bientot { color: var(--taupe); opacity: .6; cursor: default; }
+.bientot small { font-family: var(--label); font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; margin-left: .5em; border: 1px solid var(--trait); border-radius: 999px; padding: .2em .6em; }
+.pied__bas { grid-column: 1 / -1; border-top: 1px solid var(--trait); padding-top: 18px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-size: .95rem; color: var(--taupe); }
+
+@media (max-width: 900px) {
+  .accueil .wrap, .concept .wrap, .rendezvous__bloc, .questionnaire .wrap { grid-template-columns: 1fr; }
+  .accueil .arche { max-width: 480px; }
+  .grille { grid-template-columns: repeat(2, 1fr); }
+  .frise { grid-template-columns: 1fr 1fr; row-gap: 34px; }
+  .questionnaire__intro { position: static; }
+  .pied .wrap { grid-template-columns: 1fr 1fr; }
+  .pied .wrap > div:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 520px) {
+  body { font-size: 1.15rem; }
+  .entete .btn { display: none; }
+  .rendezvous__liste { grid-template-columns: 1fr; }
+  .rendezvous__liste li:nth-last-child(2) { border-bottom: 1px solid var(--trait); }
+  .frise { grid-template-columns: 1fr; }
+  .pied .wrap { grid-template-columns: 1fr; }
+}
+
+/* ——— Pages légales ——— */
+.legal .wrap { max-width: 760px; padding-block: 48px 80px; }
+.legal h1 { font-weight: 300; font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.05; margin: .3em 0 .8em; }
+.legal h2 { font-size: 1.6rem; margin: 1.6em 0 .4em; }
+.legal p, .legal li { font-size: 1.12rem; max-width: none; }
+.legal ul { padding-left: 1.2em; }

@@ -1,0 +1,9 @@
+{
+  "name": "alvezia-club",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site ALVEZIA Women's Club - page statique (HTML/CSS/JS, aucune dépendance)",
+  "scripts": {
+    "dev": "npx --yes serve . -l 3000"
+  }
+}
