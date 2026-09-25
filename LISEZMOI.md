@@ -28,7 +28,7 @@ puis ouvrir http://localhost:3000
 
 ## Réglages courants (assets/js/main.js)
 
-- `TALLY_ID` : identifiant du formulaire Tally (actuellement `lbQdWB`).
+- `TALLY_ID` : identifiant du formulaire Tally (actuellement `GxWbEo`).
 - `LIENS` : adresses Instagram, TikTok, Facebook. Laisser `""` affiche le nom en gris, sans lien.
 
 ## Remplacer une photo

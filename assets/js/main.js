@@ -2,7 +2,7 @@
 
 /* ——— À RENSEIGNER : identifiant du formulaire Tally (ex. "w8Ab3D") ———
    Tant qu'il est vide, la page affiche l'aperçu "Le questionnaire ouvre très bientôt". */
-const TALLY_ID = "lbQdWB";
+const TALLY_ID = "GxWbEo";
 
 /* ——— Liens des réseaux ———
    Mettre l'adresse complète quand le compte existe.
