@@ -12,7 +12,7 @@ alvezia-club/
 ├── confidentialite.html     Politique de confidentialité
 ├── assets/
 │   ├── css/style.css        Styles (couleurs et polices en haut du fichier)
-│   ├── js/main.js           Questionnaire Tally, liens réseaux, bouton « Copier »
+│   ├── js/main.js           Provenance transmise au questionnaire, bouton « Copier »
 │   ├── img/                 Logo, monogramme, photos, image de partage (og-image.jpg)
 │   └── icons/               Favicon et icônes pour téléphone
 ├── package.json             Commande « npm run dev »
@@ -26,10 +26,11 @@ npm run dev
 ```
 puis ouvrir http://localhost:3000
 
-## Réglages courants (assets/js/main.js)
+## Réglages courants
 
-- `TALLY_ID` : identifiant du formulaire Tally (actuellement `GxWbEo`).
-- `LIENS` : adresses Instagram, TikTok, Facebook. Laisser `""` affiche le nom en gris, sans lien.
+- Questionnaire : lien Tally dans `index.html` (bouton `#lien-questionnaire`, actuellement `https://tally.so/r/GxWbEo`).
+  Le paramètre `?source=` de l'adresse du site (ex. `alvezia-club.fr/?source=insta-bio`) est transmis automatiquement au questionnaire.
+- Réseaux sociaux : liens dans le pied de page de `index.html`.
 
 ## Remplacer une photo
 
